@@ -1,0 +1,114 @@
+{% extends 'core/base.html' %}
+{% block content %}
+
+<!-- Über uns -->
+<section id="about" class="py-5">
+  <div class="container text-center">
+    <h2 class="mb-4">Lerne uns kennen</h2>
+    <p class="lead">
+      AmbiLeaders ist eine Community für Schüler, die mehr wollen – smarter und schneller lernen, Finanzwissen erwerben
+      und KI-Tools effizient nutzen.
+    </p>
+  </div>
+</section>
+
+<!-- Features / Vorteile -->
+<section id="features" class="py-5 bg-light">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-md-4">
+        <div class="feature-icon">
+          <i class="fas fa-brain fa-3x" style="color: var(--primary-color);"></i>
+        </div>
+        <h5>Schneller und smarter lernen</h5>
+        <p>Erhalte neurowissenschaftliche Lerntipps, die dir helfen, Inhalte effektiv zu verinnerlichen.</p>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-icon">
+          <i class="fas fa-dollar-sign fa-3x" style="color: var(--primary-color);"></i>
+        </div>
+        <h5>Finanzwissen für deine Zukunft</h5>
+        <p>Lerne alles rund um Investieren, Sparen und Anlegen, um finanziell auf der sicheren Seite zu sein.</p>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-icon">
+          <i class="fas fa-robot fa-3x" style="color: var(--primary-color);"></i>
+        </div>
+        <h5>KI-Tools effizient nutzen</h5>
+        <p>Setze moderne KI-Tools ein, um deine Arbeits- und Lernprozesse zu optimieren.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call-to-Action -->
+<section class="cta text-center"
+  style="background-color: var(--dark-bg); color: var(--heading-color); padding: 4rem 0;">
+  <div class="container">
+    <h2 class="mb-4">Lernen, was die Schule dir nicht beibringt!</h2>
+    <p class="mb-4">
+      Bei AmbiLeaders profitierst du von exklusiven Tipps, modernen Lernmethoden und einer starken Community.
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="https://discord.gg/MTmbJENV3t" target="_blank" class="btn btn-lg btn-primary me-sm-3">Community
+        ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Häufige Fragen</h2>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Ist der Beitritt in die AmbiLeaders-Community kostenlos?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Ja, der Beitritt in unsere Community ist komplett kostenlos. Lediglich der Kauf von digitalen
+              Produkten ist kostenpflichtig.</strong>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Wer steckt hinter AmbiLeaders?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>AmbiLeaders wurde von Yunchan An gegründet, um ambitionierten Schülern und Studenten den Austausch
+              und den Zugang zu modernen Lernmethoden, KI-Tools und Finanzbildung zu ermöglichen.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kontakt / Formular -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Kontakt</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form method="post" action="">
+          {% csrf_token %}
+          {{ contact_form.as_p }}
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Nachricht senden</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

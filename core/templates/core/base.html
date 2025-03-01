@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AmbiLeaders – Ambitionierte Leaders</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Eigene Styles -->
+  <style>
+    /* Farben & Basis */
+    :root {
+      --dark-bg: #000000;
+      --light-bg: #ffffff;
+      --primary-color: #2CB191;
+      --text-color: #515856;
+      --heading-color: #ffffff;
+      --accent-color: #ff6f61;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--light-bg);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #ccc;
+      border-top: 5px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Navigation */
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--text-color) !important;
+    }
+
+    .nav-link {
+      color: var(--text-color) !important;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+
+    /* Neuer Header-Bereich */
+    header.header {
+      background-color: var(--primary-color);
+      padding: 40px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header.header .header-content {
+      text-align: center;
+      color: var(--heading-color);
+    }
+
+    header.header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header.header p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-bg);
+      color: var(--light-bg);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--light-bg);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">AmbiLeaders</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Navigation umschalten">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="https://discord.gg/MTmbJENV3t" target="_blank">Discord</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Über uns</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Leistung</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+        </ul>
+        <a class="btn btn-outline-secondary" href="https://www.instagram.com/ambileaders/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Neuer kompakter Header -->
+  <header class="header">
+    <div class="container header-content">
+      <h1>AmbiLeaders</h1>
+      <p>Lerne uns kennen und werde Teil unserer Community</p>
+      <a href="#about" class="btn btn-outline-light">Mehr erfahren</a>
+    </div>
+  </header>
+
+  <!-- Seiteninhalt -->
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 AmbiLeaders. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS & Preloader entfernen -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <script>
+    window.addEventListener("load", function () {
+      document.getElementById("preloader").style.display = "none";
+    });
+  </script>
+</body>
+
+</html>

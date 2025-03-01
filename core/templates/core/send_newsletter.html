@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<section id="newsletter" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Newsletter versenden</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="subject" class="form-label">Betreff</label>
+        <input type="text" id="subject" name="subject" class="form-control" placeholder="Gib hier den Betreff ein"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Nachricht</label>
+        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Deine Nachricht"
+          required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Newsletter senden</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
